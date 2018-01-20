@@ -23,11 +23,24 @@ gem 'puma', '~> 3.7'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
+gem 'jquery-rails'
+gem 'database_cleaner'
+gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara'
+  gem 'pry'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'simplecov'
 end
 
 group :development do
