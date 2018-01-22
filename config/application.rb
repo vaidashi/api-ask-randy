@@ -30,14 +30,21 @@ module ApiAskRandy
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.use Rack::Cors do
-       allow do
-         origins '*'
-         resource '*',
-           :headers => :any,
-           :methods => [:get, :put, :patch, :options, :delete],
-           :max_age => 15
-       end
-     end
+    config.action_dispatch.default_headers = {
+          'Access-Control-Allow-Origin': 'http://localhost:8080, https://localhost:8080',
+          'Access-Control-Request-Method': %w{GET POST PUT PATCH DELETE UPDATE OPTIONS}.join(","),
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+
+    # config.middleware.use Rack::Cors do
+    #    allow do
+    #      origins '*'
+    #      resource '*',
+    #        :headers => :any,
+    #        :methods => [:get, :put, :patch, :options, :delete],
+    #        :max_age => 15
+    #    end
+    #  end
   end
 end
